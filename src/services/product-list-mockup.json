@@ -2,16 +2,19 @@
   {
     "id": "41968102-45c2-40d1-a7d4-2005e2937ab0",
     "name": "Cosiena Brukat Peplum Mini Dress",
+    "image": "https://placeimg.com/640/480/people",
     "price": 150000
   },
   {
     "id": "72aaff26-d8be-424f-8c76-08142a128772",
     "name": "Cosiena Brukat Peplum High Dress",
+    "image": "https://placeimg.com/640/480/people",
     "price": 150000
   },
   {
     "id": "e83acb77-9324-4891-b3a4-7eb475869fb9",
     "name": "Cosiena Brukat Peplum Dress",
+    "image": "https://placeimg.com/640/480/people",
     "price": 150000
   }
 ]

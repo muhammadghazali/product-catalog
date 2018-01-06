@@ -7,10 +7,7 @@ const renderProductList = data => {
     return (
       <div className="card card-product">
         <div className="card-product-img-wrapper">
-          <img
-            src="https://placeimg.com/640/480/people"
-            alt={productData.name}
-          />
+          <img src={productData.image} alt={productData.name} />
         </div>
 
         <div className="card-section">

@@ -10,23 +10,17 @@ class App extends Component {
             <div className="product-list">
               <div className="card card-product">
                 <div className="card-product-img-wrapper">
-                  <a href="#">
-                    <img src="https://placeimg.com/640/480/people" />
-                  </a>
+                  <img
+                    src="https://placeimg.com/640/480/people"
+                    alt="Cosiena Brukat Peplum Mini Dress"
+                  />
                 </div>
 
                 <div className="card-section">
-                  <a href="#">
-                    <h3 className="card-product-name">
-                      Kickin with Kraken Tee
-                    </h3>
-                  </a>
-                  <h5 className="card-product-price">$19.99</h5>
-                  <p className="card-product-description">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Proin posuere sem enim, accumsan convallis risus semper.
-                  </p>
-
+                  <h3 className="card-product-name">
+                    Cosiena Brukat Peplum Mini Dress
+                  </h3>
+                  <h5 className="card-product-price">Rp 150,000</h5>
                   <button type="button" className="success button">
                     Quick Look
                   </button>

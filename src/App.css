@@ -47,15 +47,9 @@
 }
 
 .card-product-img-wrapper .card-product-name {
-  font-size: 1.375rem;
+  font-size: 1.25rem;
 }
 
 .card-product-img-wrapper .card-product-price {
   font-weight: bold;
-}
-
-.card-product-img-wrapper .card-product-description {
-  color: #8a8a8a;
-  font-size: 0.875rem;
-  margin-bottom: 0;
 }

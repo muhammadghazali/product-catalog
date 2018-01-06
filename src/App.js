@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import ProductListService from './services/ProductListService';
 import ProductList from './ProductList';
 
 class App extends Component {
@@ -8,7 +9,7 @@ class App extends Component {
       <div className="grid-container">
         <div className="grid-x grid-margin-x">
           <div className="cell small-12">
-            <ProductList />
+            <ProductList onLoadMore={ProductListService.getList} />
           </div>
         </div>
       </div>

@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import InfiniteScroll from 'react-infinite-scroller';
 import Chance from 'chance';
-
-import ProductListService from './services/ProductListService';
 
 const chance = new Chance();
 
@@ -37,9 +36,8 @@ class ProductList extends Component {
 
   loadMoreItems() {
     this.setState({
-      products: this.state.products.concat(ProductListService.getList())
+      products: this.state.products.concat(this.props.onLoadMore())
     });
-    console.log('more items');
   }
 
   loaderElement() {
@@ -62,4 +60,9 @@ class ProductList extends Component {
     );
   }
 }
+
+ProductList.propTypes = {
+  onLoadMore: PropTypes.func.isRequired
+};
+
 export default ProductList;

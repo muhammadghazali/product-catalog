@@ -4,6 +4,10 @@
   margin: 0 auto;
 }
 
+.card-product:hover {
+  cursor: pointer;
+}
+
 .card-product:hover .card-product-img-wrapper img {
   -webkit-filter: grayscale(0);
   filter: grayscale(0);

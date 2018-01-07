@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import InfiniteScroll from 'react-infinite-scroller';
 import Chance from 'chance';
 
+import ProductDetails from './ProductDetails';
+
 const chance = new Chance();
 
 class ProductList extends Component {
@@ -20,16 +22,12 @@ class ProductList extends Component {
   renderProductList(data) {
     return data.map(productData => {
       return (
-        <div className="card card-product" key={chance.guid()}>
-          <div className="card-product-img-wrapper">
-            <img src={productData.image} alt={productData.name} />
-          </div>
-
-          <div className="card-section">
-            <h3 className="card-product-name">{productData.name}</h3>
-            <h5 className="card-product-price">Rp {productData.price}</h5>
-          </div>
-        </div>
+        <ProductDetails
+          key={chance.guid()}
+          name={productData.name}
+          image={productData.image}
+          price={productData.price}
+        />
       );
     });
   }

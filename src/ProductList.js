@@ -1,11 +1,33 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import InfiniteScroll from 'react-infinite-scroller';
 import Chance from 'chance';
+import ProductListService from './services/ProductListService';
 
-import ProductDetails from './ProductDetails';
+import ProductListItem from './ProductListItem';
 
 const chance = new Chance();
+
+const ProductDetailsPage = ({ match }) => {
+  const productList = ProductListService.getList();
+  const matchedProducts = productList.filter(
+    product => product.id === match.params.productId
+  );
+
+  return (
+    <div className="card card-product">
+      <div className="card-product-img-wrapper">
+        <img src={matchedProducts[0].image} alt={matchedProducts[0].name} />
+      </div>
+
+      <div className="card-section">
+        <h3 className="card-product-name">{matchedProducts[0].name}</h3>
+        <h5 className="card-product-price">Rp {matchedProducts[0].price}</h5>
+      </div>
+    </div>
+  );
+};
 
 class ProductList extends Component {
   constructor(props) {
@@ -17,17 +39,24 @@ class ProductList extends Component {
     };
 
     this.loadMoreItems = this.loadMoreItems.bind(this);
+    this.renderInfiniteScrollSection = this.renderInfiniteScrollSection.bind(
+      this
+    );
   }
 
   renderProductList(data) {
     return data.map(productData => {
       return (
-        <ProductDetails
-          key={chance.guid()}
-          name={productData.name}
-          image={productData.image}
-          price={productData.price}
-        />
+        <div key={chance.guid()}>
+          <Link to={'/products/' + productData.id}>
+            <ProductListItem
+              id={productData.id}
+              name={productData.name}
+              image={productData.image}
+              price={productData.price}
+            />
+          </Link>
+        </div>
       );
     });
   }
@@ -42,7 +71,7 @@ class ProductList extends Component {
     return <div className="loader">Loading ...</div>;
   }
 
-  render() {
+  renderInfiniteScrollSection() {
     return (
       <InfiniteScroll
         pageStart={0}
@@ -55,6 +84,21 @@ class ProductList extends Component {
           {this.renderProductList(this.state.products)}
         </div>
       </InfiniteScroll>
+    );
+  }
+
+  render() {
+    return (
+      <Router>
+        <div>
+          <Route
+            exact
+            path="/"
+            render={() => this.renderInfiniteScrollSection()}
+          />
+          <Route path="/products/:productId" component={ProductDetailsPage} />
+        </div>
+      </Router>
     );
   }
 }

@@ -4,6 +4,11 @@
   margin: 0 auto;
 }
 
+.card-product {
+  margin-top: 1%;
+  cursor: pointer;
+}
+
 .card-product:hover {
   cursor: pointer;
 }

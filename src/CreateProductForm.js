@@ -6,10 +6,15 @@ class CreateProductForm extends Component {
 
     this.setState = {};
     this.handleChange = this.handleChange.bind(this);
+    this.handleColorChange = this.handleColorChange.bind(this);
   }
 
   handleChange(e) {
     console.log('handleChange', e);
+  }
+
+  handleColorChange(color) {
+    console.log('color', color);
   }
 
   render() {
@@ -47,7 +52,7 @@ class CreateProductForm extends Component {
                   <div className="medium-12 cell">
                     <label>
                       Color
-                      <CirclePicker />
+                      <CirclePicker onChangeComplete={this.handleColorChange} />
                       <br />
                     </label>
                   </div>

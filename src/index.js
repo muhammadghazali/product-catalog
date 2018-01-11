@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import * as firebase from 'firebase';
 
 import 'foundation-sites/dist/css/foundation.css';
 import 'foundation-sites/dist/css/foundation-prototype.css';
@@ -13,8 +14,16 @@ import registerServiceWorker from './registerServiceWorker';
 
 import 'foundation-sites';
 
+const firebaseService = firebase.initializeApp({
+  apiKey: 'AIzaSyDXrDalWKUI36m9GdZosLdIjw8gKjdPZl8',
+  databaseURL: 'https://dummy-product-catalog.firebaseio.com/'
+});
+
 const $ = window.$;
 $(document).foundation();
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+  <App firebaseService={firebaseService} />,
+  document.getElementById('root')
+);
 registerServiceWorker();

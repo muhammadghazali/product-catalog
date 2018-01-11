@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { CirclePicker } from 'react-color';
+
 class CreateProductForm extends Component {
   constructor(props) {
     super(props);
 
-    this.setState = {};
+    this.setState = { database: this.props.firebaseService.database() };
     this.handleChange = this.handleChange.bind(this);
     this.handleColorChange = this.handleColorChange.bind(this);
   }

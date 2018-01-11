@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import InfiniteScroll from 'react-infinite-scroller';
 import Chance from 'chance';
 import ProductDetailsPage from './ProductDetailsPage';
+import CreateProductForm from './CreateProductForm';
 
 import ProductListItem from './ProductListItem';
 
@@ -71,12 +72,23 @@ class ProductList extends Component {
     return (
       <Router>
         <div>
-          <Route
-            exact
-            path="/"
-            render={() => this.renderInfiniteScrollSection()}
-          />
-          <Route path="/products/:productId" component={ProductDetailsPage} />
+          <Switch>
+            <Route
+              exact
+              path="/"
+              render={() => this.renderInfiniteScrollSection()}
+            />
+            <Route
+              exact
+              path="/products/add"
+              component={() => (
+                <CreateProductForm
+                  firebaseService={this.props.firebaseService}
+                />
+              )}
+            />
+            <Route path="/products/:productId" component={ProductDetailsPage} />
+          </Switch>
         </div>
       </Router>
     );
